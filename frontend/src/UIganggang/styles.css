@@ -1,0 +1,258 @@
+
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background: url("/f24_umaf_wide_transparent.png") no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+/* General Styles */
+
+  
+  /* Page Containers */
+  .page-container, .signin-container, .signup-container, .container, .chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    backdrop-filter: blur(8px); /* Subtle blur for readability */
+  }
+  
+  /* Navigation Bar */
+  header {
+    width: 100%;
+    background: rgba(128, 0, 0, 0.85); /* Slight transparency */
+    padding: 10px 0;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+  
+  nav ul li {
+    display: inline;
+  }
+  
+  nav button {
+    background: transparent;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .auth-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .auth-buttons button {
+    background: white;
+    color: #800000;
+    border: 2px solid #800000;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .auth-buttons button:hover {
+    background: #800000;
+    color: white;
+  }
+  
+  /* Card Styling */
+  .card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+  }
+  
+  .card h2 {
+    color: #800000;
+  }
+  
+  /* Sign Up & Sign In Forms */
+  form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+  }
+  
+  form h2 {
+    color: #800000;
+    text-align: center;
+  }
+  
+  form label {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  form input {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+  }
+  
+  form input:focus {
+    border-color: #800000;
+    outline: none;
+  }
+  
+  form button {
+    margin-top: 20px;
+    background: #800000;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  form button:hover {
+    background: #600000;
+  }
+  
+  /* Academic Requirements Section */
+  .category {
+    background: white;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 500px;
+  }
+  
+  .requirement {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 5px 0;
+  }
+  
+  .submit-btn {
+    background: #800000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .submit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .success {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  /* Chatbot Section */
+  .chat-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  .chat-messages {
+    height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: white;
+    border-radius: 5px;
+  }
+  
+  .chat-input-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .chat-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .send-button {
+    background: #800000;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .send-button:hover {
+    background: #600000;
+  }
+  
+  /* Back Button */
+  .back-button {
+    background: #800000;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .back-button:hover {
+    background: #600000;
+  }
+  
+  /* User Component */
+  .user-container {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .user-container p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
