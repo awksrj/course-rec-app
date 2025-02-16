@@ -1,13 +1,12 @@
 import express, { Application } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import connectDB from './config/db';
+
+// ✅ Load .env before importing any routes
+dotenv.config();
+
 import courseRoutes from './routes/courseRoutes';
 import chatbotRoutes from './routes/chatbotRoutes';
-
-
-
-dotenv.config();
 
 const app: Application = express();
 
@@ -19,12 +18,15 @@ app.use(express.json());
 app.use('/api/courses', courseRoutes);
 app.use('/api/chatbot', chatbotRoutes);
 
+app.use(cors({
+    origin: "http://localhost:3000", // Change this if needed
+    credentials: true
+}));
+
 app.get('/', (_req, res) => {
     res.send('Course Recommendation Chatbot Backend is Running!');
 });
 
-// Connect to DB and Start Server
+// ✅ Start the server
 const PORT = process.env.PORT || 5000;
-connectDB().then(() => {
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-});
+app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
