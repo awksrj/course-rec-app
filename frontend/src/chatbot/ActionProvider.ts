@@ -9,21 +9,23 @@ class ActionProvider {
     this.setState = setStateFunc;
   }
 
-  // Function to send message to backend
   async sendMessageToChatbot(userMessage: string) {
-    console.log("🔵 Sending to backend:", userMessage); // ✅ Debugging
+    console.log("🔵 Sending to backend:", userMessage);
 
     try {
       const response = await fetch(API_URL, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userMessage }),
       });
 
       const data = await response.json();
-      console.log("🟢 Received from backend:", data); // ✅ Debugging
+      console.log("🟢 Received from backend:", data);
+
+      if (data.error) {
+        console.error("🔴 Backend Error:", data.error);
+        return "⚠️ Error: Unable to get a response.";
+      }
 
       return data.reply;
     } catch (error) {
@@ -32,27 +34,22 @@ class ActionProvider {
     }
   }
 
-  // Handle user messages by sending them to backend
   async handleUserMessage(userMessage: string) {
-    console.log("👤 User input:", userMessage); // ✅ Debugging
+    console.log("👤 User input:", userMessage);
 
-    // Show user message in chat
     const userChatMessage = this.createChatBotMessage(userMessage, { delay: 300 });
     this.addMessageToState(userChatMessage);
 
-    // Get bot response from backend
     const botReply = await this.sendMessageToChatbot(userMessage);
 
-    console.log("🤖 Bot response:", botReply); // ✅ Debugging
+    console.log("🤖 Bot response:", botReply);
 
-    // Show chatbot's response in chat
     const botChatMessage = this.createChatBotMessage(botReply, { delay: 500 });
     this.addMessageToState(botChatMessage);
   }
 
-  // Add messages to chatbot state
   addMessageToState = (message: any) => {
-    console.log("📩 Adding message to state:", message); // ✅ Debugging
+    console.log("📩 Adding message to state:", message);
     this.setState((prevState: any) => ({
       ...prevState,
       messages: [...prevState.messages, message],
