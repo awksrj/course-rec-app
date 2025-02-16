@@ -1,0 +1,119 @@
+/* Reset & General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url("C:\Users\Asus\course-rec-app\frontend\f24_umaf_wide_transparent.png") no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150%;
+    background-color: rgba(255, 255, 255, 0.4); /* White overlay with 40% opacity */
+    z-index: -1;
+}
+
+/* Navigation */
+header {
+    background-color: #8B0000;
+    padding: 15px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: auto;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+ul li {
+    margin: 0 15px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Style both Sign In and Register buttons similarly */
+.auth-buttons button {
+    width: fit-content;
+    padding: 12px 20px; 
+    margin-left: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 25px; 
+    background-color: white; 
+    color: black; 
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect for both buttons */
+.auth-buttons button:hover {
+    background-color: #ddd;
+}
+
+
+.sign-in {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.sign-up {
+    background-color: white;
+    color: black;
+    border-radius: 25px;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+/* Card */
+.card {
+    background-color: #8B0000;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Sign Up Button */
+#signup-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 25px;
+    width: fit-content;
+}
+
+#signup-btn:hover {
+    background-color: #333;
+}
