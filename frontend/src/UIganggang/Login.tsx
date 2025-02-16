@@ -6,7 +6,11 @@ const Login: React.FC = () => {
   const navigate = useNavigate();
 
   const handleSignUpClick = () => {
-    navigate('/signup');
+    navigate('/signup'); // Navigate to SignUp
+  };
+
+  const handleSignInClick = () => {
+    navigate('/signin'); // Navigate to SignIn
   };
 
   return (
@@ -14,11 +18,11 @@ const Login: React.FC = () => {
       <header>
         <nav>
           <ul>
-          <li><button>About</button></li>  {/* Placeholder */}
-          <li><button>Contact</button></li> {/* Placeholder */}
+            <li><button>About</button></li>
+            <li><button>Contact</button></li>
           </ul>
           <div className="auth-buttons">
-            <button className="sign-in">Sign In</button>
+            <button className="sign-in" onClick={handleSignInClick}>Sign In</button>
             <button className="register" onClick={handleSignUpClick}>Sign Up</button>
           </div>
         </nav>

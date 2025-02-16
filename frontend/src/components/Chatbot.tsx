@@ -1,43 +1,37 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Chatbot from "react-chatbot-kit";
 import config from "../chatbot/config";
 import MessageParser from "../chatbot/MessageParser";
 import ActionProvider from "../chatbot/ActionProvider";
-import "../chatbot/chatbotStyles.css"; // Import custom styles
+import "../chatbot/chatbotStyles.css";
 
 const ChatbotComponent: React.FC = () => {
-  const [userInput, setUserInput] = useState(""); // Stores user input
-  const messagesEndRef = useRef<HTMLDivElement>(null); // Ref for scrolling
+  const navigate = useNavigate(); // ✅ Add useNavigate
+  const [userInput, setUserInput] = useState("");
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Scroll to the latest message
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
-    scrollToBottom(); // Scroll on component mount
+    scrollToBottom();
   }, []);
 
-  // Handle user input submission
   const handleSendMessage = () => {
-    if (userInput.trim() === "") return; // Ignore empty messages
+    if (userInput.trim() === "") return;
 
-    // Find chatbot instance and call ActionProvider's method
-    const chatbotContainer = document.querySelector(".react-chatbot-kit-chat-container");
-    if (chatbotContainer) {
-      const chatbotInstance: any = (chatbotContainer as any).__REACT_CHATBOT_INSTANCE__;
-      chatbotInstance?.actionProvider?.handleUserMessage(userInput);
-    }
-
-    setUserInput(""); // Clear input after sending
-    scrollToBottom(); // Scroll to the bottom after sending
+    setUserInput("");
+    scrollToBottom();
   };
 
   return (
     <div className="chat-container">
+      <button className="back-button" onClick={() => navigate("/")}>⬅ Back to Login</button>
       <div className="chat-messages">
         <Chatbot config={config} messageParser={MessageParser} actionProvider={ActionProvider} />
-        <div ref={messagesEndRef} /> {/* Invisible div to auto-scroll */}
+        <div ref={messagesEndRef} />
       </div>
       <div className="chat-input-container">
         <input
