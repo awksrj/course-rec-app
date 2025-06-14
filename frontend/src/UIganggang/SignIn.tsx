@@ -1,7 +1,7 @@
 import React, { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './SignIn.css';
-import ChatbotComponent from '../components/Chatbot';
+import "./styles.css"
+
 
 const SignIn: React.FC = () => {
   const navigate = useNavigate(); 

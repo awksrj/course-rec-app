@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import "./AcademicRequirement.css";
-
+import "./styles.css"
 const requirements = {
   Math: [
     "MATH 131: Calculus I",

@@ -1,6 +1,7 @@
 import React, { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './SignUp.css';
+import "./styles.css"
+
 
 const SignUp: React.FC = () => {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ const SignUp: React.FC = () => {
     }
 
     alert(`Welcome, ${firstname}! Your account has been created.`);
-    navigate('/'); // Redirect to login after sign-up
+    navigate('/academic-requirement'); // Redirect to login after sign-up
   };
 
   return (
